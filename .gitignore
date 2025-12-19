@@ -1,20 +1,15 @@
-# Maven target directory
-/target/
+# Ignore everything in target/
+target/*
 
-# Eclipse/IntelliJ/IDE files
+# Except oscs.war
+!target/oscs.war
+
+# Optional: ignore IDE and OS files
 *.iml
 .idea/
 .project
-.classpath
 .settings/
-
-# Logs
 *.log
-
-# OS files
 .DS_Store
 Thumbs.db
-
-# Temporary files
-*.tmp
 
