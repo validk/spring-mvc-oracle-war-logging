@@ -8,37 +8,23 @@
            http://www.springframework.org/schema/context
            classpath:org/springframework/context/config/spring-context.xsd">
 
-    <!-- ===========================
-         WebLogic JNDI DataSource
-         =========================== -->
+    <!-- JNDI DataSource -->
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <!-- Replace with your WebLogic DataSource JNDI name -->
         <property name="jndiName" value="jdbc/YourDataSourceName"/>
         <property name="resourceRef" value="true"/>
     </bean>
 
-    <!-- ===========================
-         DAO beans
-         =========================== -->
+    <!-- Example DAO -->
     <bean id="exampleDao" class="com.example.dao.ExampleDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- ===========================
-         Service beans
-         =========================== -->
+    <!-- Example Service -->
     <bean id="exampleService" class="com.example.service.ExampleService">
         <property name="exampleDao" ref="exampleDao"/>
     </bean>
 
-    <!-- ===========================
-         Add other beans here
-         =========================== -->
-    <!-- e.g., messageListener, helper beans, etc. -->
-
-    <!-- ===========================
-         Component scanning (optional)
-         =========================== -->
+    <!-- Component scanning -->
     <context:component-scan base-package="com.example"/>
     
 </beans>
