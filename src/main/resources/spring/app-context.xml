@@ -7,10 +7,11 @@
            classpath:org/springframework/beans/factory/xml/spring-beans.xsd
            http://www.springframework.org/schema/context
            classpath:org/springframework/context/config/spring-context.xsd">
+</beans>
 
-    <!-- JNDI DataSource -->
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="jdbc/YourDataSourceName"/>
+   <!-- JNDI DataSource -->
+   <!--  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="jdbc/HelloDS"/>
         <property name="resourceRef" value="true"/>
     </bean>
 
@@ -26,5 +27,5 @@
 
     <!-- Component scanning -->
     <context:component-scan base-package="com.example"/>
+    -->
     
-</beans>
