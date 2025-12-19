@@ -1,8 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:jee="http://www.springframework.org/schema/jee">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <jee:jndi-lookup id="dataSource"
-      jndi-name="jdbc/HelloDS"
-      resource-ref="true"/>
+    <!-- JNDI DataSource from WebLogic -->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="jdbc/HelloDS"/>
+        <property name="resourceRef" value="true"/>
+    </bean>
 
 </beans>
+
