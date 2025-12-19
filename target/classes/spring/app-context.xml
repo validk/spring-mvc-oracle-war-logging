@@ -1,8 +1,0 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:jee="http://www.springframework.org/schema/jee">
-
-  <jee:jndi-lookup id="dataSource"
-      jndi-name="jdbc/HelloDS"
-      resource-ref="true"/>
-
-</beans>
