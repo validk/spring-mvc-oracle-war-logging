@@ -18,6 +18,12 @@ public class HelloController {
         this.helloDao = helloDao;
     }
 
+        // New status endpoint
+    @GetMapping("/status")
+    public String status() {
+        return "Service is running";
+    }
+    
     @GetMapping("/hello")
     public String hello() {
         String ms = ServerInfo.getManagedServerName();
