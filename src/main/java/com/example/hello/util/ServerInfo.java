@@ -11,9 +11,4 @@ public final class ServerInfo {
     public static String getPodName() {
         return System.getenv().getOrDefault("HOSTNAME", "unknown-pod");
     }
-
-    public static String getThreadName() {
-        return Thread.currentThread().getName();
-    }
 }
-
