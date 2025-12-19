@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="https://www.springframework.org/schema/beans"
-       xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="https://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
-           https://www.springframework.org/schema/beans
-           https://www.springframework.org/schema/beans/spring-beans.xsd
-           https://www.springframework.org/schema/context
-           https://www.springframework.org/schema/context/spring-context.xsd">
+           http://www.springframework.org/schema/beans
+           classpath:org/springframework/beans/factory/xml/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           classpath:org/springframework/context/config/spring-context.xsd">
 
-    <!-- WebLogic JNDI DataSource -->
+    <!-- ===========================
+         WebLogic JNDI DataSource
+         =========================== -->
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <!-- Replace with your WebLogic DataSource JNDI name -->
         <property name="jndiName" value="jdbc/YourDataSourceName"/>
         <property name="resourceRef" value="true"/>
     </bean>
 
-    <!-- Example service bean -->
-    <bean id="exampleService" class="com.example.service.ExampleService">
+    <!-- ===========================
+         DAO beans
+         =========================== -->
+    <bean id="exampleDao" class="com.example.dao.ExampleDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!-- ===========================
+         Service beans
+         =========================== -->
+    <bean id="exampleService" class="com.example.service.ExampleService">
+        <property name="exampleDao" ref="exampleDao"/>
+    </bean>
+
+    <!-- ===========================
+         Add other beans here
+         =========================== -->
+    <!-- e.g., messageListener, helper beans, etc. -->
+
+    <!-- ===========================
+         Component scanning (optional)
+         =========================== -->
+    <context:component-scan base-package="com.example"/>
+    
 </beans>
